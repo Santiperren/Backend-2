@@ -8,3 +8,7 @@ const upload = multer({ storage });
 app.get('/', (req, res) => {
     res.send('Node js api');
 });
+
+const port = process.env.port || 80;
+app.listen(port, () => console.log(`escuchando en puerto ${port}...`));
+
