@@ -20,4 +20,4 @@ router.post('/subir-imagen', upload.single('imagen'), (req, res) => {
   });
 });
 
-module.exports = router;
+export default router;
