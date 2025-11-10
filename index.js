@@ -1,5 +1,8 @@
 import express from 'express';
 import imagenesRouter from './router/imagenes.js';
+import cors from 'cors';
+app.use(cors());
+
 
 const app = express();
 
