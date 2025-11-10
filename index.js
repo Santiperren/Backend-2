@@ -1,7 +1,7 @@
 import express from 'express';
 import imagenesRouter from './router/imagenes.js';
 import cors from 'cors';
-app.use(cors());
+
 
 
 const app = express();
@@ -11,7 +11,7 @@ app.use('/api', imagenesRouter);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Servidor escuchando en puerto ${port}`));
-
+app.use(cors());
 //import express from 'express';
 //import multer from 'multer';
 //const app = express();
