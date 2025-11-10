@@ -15,25 +15,25 @@ const upload = multer({ storage });
   
 
 
-//router.post('/subir-imagen', upload.single('imagen'), (req, res) => {
- // console.log('Archivo recibido:', req.file);
-  //const archivo = req.file;
- // if (!archivo) {
- //   return res.status(400).json({ error: 'No se subió ninguna imagen' });
- // }
-
- router.post('/subir-imagenes', upload.fields([
-  { name: 'fileTransversalFile', maxCount: 1 },
-  { name: 'fileLongitudinalFile', maxCount: 1 }
-]), (req, res) => {
-  console.log('Archivos recibidos:', req.files);
-
-  const transversal = req.files['fileTransversalFile']?.[0];
-  const longitudinal = req.files['fileLongitudinalFile']?.[0];
-
-  if (!transversal || !longitudinal) {
-    return res.status(400).json({ error: 'Faltan uno o ambos archivos' });
+router.post('/subir-imagen', upload.single('imagen'), (req, res) => {
+  console.log('Archivo recibido:', req.file);
+  const archivo = req.file;
+ if (!archivo) {
+    return res.status(400).json({ error: 'No se subió ninguna imagen' });
   }
+
+ //router.post('/subir-imagenes', upload.fields([
+ // { name: 'fileTransversalFile', maxCount: 1 },
+  //{ name: 'fileLongitudinalFile', maxCount: 1 }
+//]), (req, res) => {
+  //console.log('Archivos recibidos:', req.files);
+
+  //const transversal = req.files['fileTransversalFile']?.[0];
+  //const longitudinal = req.files['fileLongitudinalFile']?.[0];
+
+  //if (!transversal || !longitudinal) {
+    //return res.status(400).json({ error: 'Faltan uno o ambos archivos' });
+  //}
 
   res.json({
     mensaje: 'Imagen recibida correctamente',
