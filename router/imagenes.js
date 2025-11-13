@@ -31,10 +31,9 @@ router.post('/subir-imagen', upload.single('imagen'), async (req, res) => {
       contentType: archivo.mimetype
     });
 
-    const IA_URL = 'http://192.168.0.105:5000/predict';
+    const IA_URL = 'http://172.20.10.3:5002/infer';
 
-    // Enviar imagen a la IA
-    const response = await axios.post(IA_URL, formData, {
+        const response = await axios.post(IA_URL, formData, {
       headers: formData.getHeaders()
     });
 
