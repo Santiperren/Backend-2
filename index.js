@@ -9,6 +9,10 @@ const app = express();
 
 app.use('/api', imagenesRouter);
 
+app.get('/', (req, res) => {
+  res.send('Servidor backend funcionando 🚀');
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Servidor escuchando en puerto ${port}`));
 app.use(cors());
