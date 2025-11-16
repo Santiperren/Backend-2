@@ -25,25 +25,25 @@ router.post('/subir-imagen', upload.single('imagen'), async (req, res) => {
 
     console.log('📸 Imagen recibida:', archivo.originalname);
 
-    const formData = new FormData();
-    formData.append('file', archivo.buffer, {
-      filename: archivo.originalname,
-      contentType: archivo.mimetype
-    });
+    //const formData = new FormData();
+   // formData.append('file', archivo.buffer, {
+     // filename: archivo.originalname,
+     // contentType: archivo.mimetype
+    //});
 
-    const IA_URL = 'http://172.20.10.3:5002/infer';
+   // const IA_URL = 'http://172.20.10.3:5002/infer';
 
-        const response = await axios.post(IA_URL, formData, {
-      headers: formData.getHeaders()
-    });
+      //  const response = await axios.post(IA_URL, formData, {
+    //  headers: formData.getHeaders()
+  //  });
 
-    console.log('✅ Respuesta de la IA:', response.data);
+   // console.log('✅ Respuesta de la IA:', response.data);
 
-      res.json({
-      mensaje: 'Imagen procesada correctamente',
-      resultadoIA: response.data
-    });
-
+    //  res.json({
+    //  mensaje: 'Imagen procesada correctamente',
+   //   resultadoIA: response.data
+   // });
+  res.status(200).json({ message: "Imagen recibida correctamente" });
   } catch (error) {
     console.error('❌ Error al conectar con la IA:', error.message);
     res.status(500).json({ error: 'Error al procesar la imagen con la IA' });
