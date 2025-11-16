@@ -46,6 +46,17 @@ router.post('/subir-imagen', upload.single('imagen'), async (req, res) => {
    //   resultadoIA: response.data
    // });
   res.status(200).json({ message: "Imagen recibida correctamente" });
+  const resultadoFalsoIA = {
+      clase: 'simulado',
+      precision: 0.99,
+      mensaje: 'Este es un resultado simulado de la IA'
+    };
+
+    
+    res.json({
+      mensaje: 'Imagen procesada correctamente',
+      resultadoIA: resultadoFalsoIA
+    });
   } catch (error) {
     console.error('❌ Error al conectar con la IA:', error.message);
     res.status(500).json({ error: 'Error al procesar la imagen con la IA' });
