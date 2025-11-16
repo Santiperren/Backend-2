@@ -44,15 +44,14 @@ router.post('/subir-imagen', upload.single('imagen'), async (req, res) => {
     //  res.json({
     //  mensaje: 'Imagen procesada correctamente',
    //   resultadoIA: response.data
-   // });
-  res.status(200).json({ message: "Imagen recibida correctamente" });
+   // });  
   const resultadoFalsoIA = {
       clase: 'simulado',
       precision: 0.99,
       mensaje: 'Este es un resultado simulado de la IA'
     };
 
-    
+    //esto tiene q hace q funcione porfa;
     res.json({
       mensaje: 'Imagen procesada correctamente',
       resultadoIA: resultadoFalsoIA
