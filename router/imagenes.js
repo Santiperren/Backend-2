@@ -24,7 +24,8 @@ router.post('/subir-imagen', upload.single('imagen'), async (req, res) => {
     }
 
     console.log('📸 Imagen recibida:', archivo.originalname);
-
+    console.log("Headers:", req.headers);
+    console.log("File received:", !!req.file);
     //const formData = new FormData();
    // formData.append('file', archivo.buffer, {
      // filename: archivo.originalname,
