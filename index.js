@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Servidor escuchando en puerto ${port}`));
 app.use(cors({
-  origin: '*', 
+  origin: 'http://10.12.222.75:3000', 
   credentials: true
 }));
 //import express from 'express';
