@@ -1,7 +1,7 @@
 import express from 'express';
 import multer from 'multer';
-import axios from 'axios';
-import FormData from 'form-data';
+//import axios from 'axios';
+//import FormData from 'form-data';
 
 const router = express.Router();
 
