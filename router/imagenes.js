@@ -16,22 +16,22 @@ const fileFilter = (req, file, cb) => {
 };
 const upload = multer({ storage, fileFilter });
 
-router.post('/subir-imagen', upload.single('imagen'), async (req, res) => {
+router.post('/subir-imagen', upload.single('image'), async (req, res) => {
   try {
     const archivo = req.file;
     if (!archivo) {
       return res.status(400).json({ error: 'No se subió ninguna imagen' });
     }
-
+    
     console.log('📸 Imagen recibida:', archivo.originalname);
     console.log("Headers:", req.headers);
     console.log("File received:", !!req.file);
     
     const formData = new FormData();
    formData.append('file', archivo.buffer, {
-      filename: archivo.originalname,
+     filename: archivo.originalname,
       contentType: archivo.mimetype
-    });
+   });
 
     const IA_URL = 'http://172.20.10.3:5002/infer';
 
@@ -41,7 +41,7 @@ router.post('/subir-imagen', upload.single('imagen'), async (req, res) => {
 
     console.log('✅ Respuesta de la IA:', response.data);
 
-      res.json({
+    res.json({
       mensaje: 'Imagen procesada correctamente',
       resultadoIA: response.data
     });  
