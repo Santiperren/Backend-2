@@ -15,7 +15,10 @@ app.get('/', (req, res) => {
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Servidor escuchando en puerto ${port}`));
-app.use(cors());
+app.use(cors({
+  origin: '*', 
+  credentials: true
+}));
 //import express from 'express';
 //import multer from 'multer';
 //const app = express();
